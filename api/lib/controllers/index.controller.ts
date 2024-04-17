@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 class IndexController implements Controller {
-   public path = '/*';
+   public path = '/';
    public router = Router();
 
    constructor() {
