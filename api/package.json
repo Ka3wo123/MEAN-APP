@@ -4,10 +4,10 @@
   "description": "MEAN project ",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+  "scripts": {    
     "dev": "tsx ./lib/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "watch": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "joi": "^17.12.3",
     "mongoose": "^8.3.1",
     "morgan": "^1.10.0",
+    "nodemon": "^3.1.0",
     "tsx": "^4.7.2"
   },
   "devDependencies": {

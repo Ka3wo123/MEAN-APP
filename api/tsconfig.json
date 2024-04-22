@@ -99,9 +99,9 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": [
-    "lib/**/*.ts",
-    "lib/interfaces/*.interface.ts",
-    "lib/controllers/*.controller.ts"
+    "lib/**/*.ts",    
+    "lib/modules/**/*.ts",
+    "lib/modules/**/*.middlewares.ts"
   ],
   "exclude": [
     "node_modules"
