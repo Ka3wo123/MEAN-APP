@@ -4,7 +4,7 @@
   "description": "MEAN project ",
   "main": "index.js",
   "type": "module",
-  "scripts": {    
+  "scripts": {
     "dev": "tsx ./lib/index.ts",
     "build": "tsc",
     "watch": "nodemon"
@@ -20,19 +20,23 @@
   },
   "homepage": "https://github.com/Ka3wo123/MEAN-APP#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
     "express": "^4.19.2",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
     "joi": "^17.12.3",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.1",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.0",
     "tsx": "^4.7.2"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.12.7",
     "node-gyp": "^10.1.0",
