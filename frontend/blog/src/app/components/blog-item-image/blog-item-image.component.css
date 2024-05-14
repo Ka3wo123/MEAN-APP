@@ -1,0 +1,10 @@
+.image-content {
+    width: 250px;
+    height: auto;
+    transition: 0.5s;
+}
+
+.image-content:hover {
+    filter: brightness(110%);
+    cursor: pointer;
+}

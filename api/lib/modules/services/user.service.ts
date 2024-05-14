@@ -1,5 +1,6 @@
 import  UserModel  from '../schemas/user.schema';
 import {IUser} from "../models/user.model";
+import { error } from 'console';
 
 class UserService {
    public async createNewOrUpdate(user: IUser) {
@@ -19,10 +20,11 @@ class UserService {
 
    public async getByEmailOrName(name: string) {
        try {
-           const result = await UserModel.findOne({ $or: [{ email: name }, { name: name }] });
-           if (result) {
-               return result;
+           const result = await UserModel.findOne({ $and: [{ email: name }, { name: name }] });
+           if (result?.$isEmpty) {
+               throw Error("Login or password invalid");
            }
+           return result;
        } catch (error) {
            console.error('Wystąpił błąd podczas pobierania danych:', error);
            throw new Error('Wystąpił błąd podczas pobierania danych');

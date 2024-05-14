@@ -29,10 +29,10 @@ class UserController implements Controller {
         try {
             const user = await this.userService.getByEmailOrName(login);
             if (!user) {
-                response.status(401).json({ error: 'Unauthorized' });
+                response.status(401).json({ error: 'Unauthorized' });                
             }
             await this.passwordService.authorize(user?.id, await this.passwordService.hashPassword(password));
-            const token = await this.tokenService.create(user);
+            const token = await this.tokenService.create(user);            
             response.status(200).json(this.tokenService.getToken(token));
         } catch (error: any) {
             console.error(`Validation Error: ${error.message}`);
@@ -64,7 +64,7 @@ class UserController implements Controller {
 
         try {
             const result = await this.tokenService.remove(userId);
-            response.status(200).send(result);
+            response.status(200).json(result);
         } catch (error: any) {
             console.error(`Validation Error: ${error.message}`);
             response.status(401).json({ error: 'Unauthorized' });
