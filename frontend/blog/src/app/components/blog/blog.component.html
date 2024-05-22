@@ -1,8 +1,8 @@
 <div class="title-container" style="background-color: azure;">
     <h1 class="title-style">Ka3wo's blog</h1>
 </div>
-<div class="container" style="padding: 10px; border-radius: 10px; margin-bottom: 10px;" *ngFor="let item of items">
-    <blog-item [image]="item.image" [text]="item.text">
+<div class="container" style="padding: 10px; border-radius: 10px; margin-bottom: 10px;" *ngFor="let item of items | filter:filterText">
+    <blog-item [image]="item.image" [text]="item.text" [id]="item.id">
     </blog-item>
 </div>
 

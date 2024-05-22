@@ -20,8 +20,10 @@
   },
   "homepage": "https://github.com/Ka3wo123/MEAN-APP#readme",
   "dependencies": {
+    "@types/cors": "^2.8.17",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "ejs": "^3.1.9",
     "express": "^4.19.2",
     "graphql": "^16.8.1",

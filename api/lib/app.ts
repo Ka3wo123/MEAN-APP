@@ -4,15 +4,17 @@ import Controller from 'interfaces/controller.interface';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
+import cors from 'cors'
 
 class App {
     public app: express.Application;
 
-    constructor(controllers: Controller[]) {
+    constructor(controllers: Controller[]) {      
         this.app = express();
         this.initializeMiddlewares();
         this.initializeControllers(controllers);
         this.connectToDatabase();
+        this.app.use(cors());
     }
 
     public listen(): void {
@@ -27,7 +29,7 @@ class App {
     }
 
     private initializeMiddlewares(): void {
-        this.app.use(bodyParser.json());              
+        this.app.use(bodyParser.json());                      
     }
 
     private async connectToDatabase(): Promise<void> {
