@@ -1,13 +1,12 @@
 import  UserModel  from '../schemas/user.schema';
 import {IUser} from "../models/user.model";
-import { error } from 'console';
 
 class UserService {
    public async createNewOrUpdate(user: IUser) {
        console.log(user)
        try {
            if (!user._id) {
-               const dataModel = new UserModel(user);
+               const dataModel = new UserModel(user);               
                return await dataModel.save();
            } else {
                return await UserModel.findByIdAndUpdate(user._id, { $set: user }, { new: true });
@@ -20,8 +19,9 @@ class UserService {
 
    public async getByEmailOrName(name: string) {
        try {
-           const result = await UserModel.findOne({ $and: [{ email: name }, { name: name }] });
-           if (result?.$isEmpty) {
+           const result = await UserModel.findOne({ $or: [{ email: name }, { name: name }] });
+           console.log("THIS IS RESULT: " +result)
+           if (result === null) {
                throw Error("Login or password invalid");
            }
            return result;
@@ -30,6 +30,8 @@ class UserService {
            throw new Error('Wystąpił błąd podczas pobierania danych');
        }
    }
+
+   
 }
 
 export default UserService;

@@ -40,10 +40,10 @@ class TokenService {
        return {token: token.value};
    }
 
-   public async remove(userId: string) {
+   public async remove(userId: string) {    
        try {
            const result = await TokenModel.deleteOne({ userId: userId });
-           console.log(result)
+    
            if (result.deletedCount === 0) {
                throw new Error('Wystąpił błąd podczas usuwania danych');
            }

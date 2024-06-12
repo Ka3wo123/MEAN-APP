@@ -1,0 +1,53 @@
+.mainContainer {
+    background-image: url('../../../mountain2.jpg'); /* Specify the URL of your image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1; /* Ensure the form is above the background image */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .input-group textarea {
+        height: 500px
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea.form-control {
+    resize: vertical;
+  }
+  
+  .img-preview {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

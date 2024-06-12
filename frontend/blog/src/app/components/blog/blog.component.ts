@@ -4,12 +4,13 @@ import { BlogItemComponent } from "../blog-item/blog-item.component";
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from '@angular/common/http';
 import { FilterTextPipe } from '../../pipes/filter-text.pipe';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'blog',
   standalone: true,
   imports: [HttpClientModule, BlogItemComponent, CommonModule, FilterTextPipe],
-  providers: [DataService],
+  providers: [DataService, AuthService],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css'
 })

@@ -13,8 +13,7 @@ class App {
         this.app = express();
         this.initializeMiddlewares();
         this.initializeControllers(controllers);
-        this.connectToDatabase();
-        this.app.use(cors());
+        this.connectToDatabase();        
     }
 
     public listen(): void {
@@ -29,6 +28,7 @@ class App {
     }
 
     private initializeMiddlewares(): void {
+      this.app.use(cors());
         this.app.use(bodyParser.json());                      
     }
 

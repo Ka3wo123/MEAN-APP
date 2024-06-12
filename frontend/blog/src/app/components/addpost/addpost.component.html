@@ -1,0 +1,32 @@
+<div class="mainContainer">
+  <div class="container">
+    <form action="post" autocomplete="off" method="POST">
+      <div class="input-group">
+        <input [(ngModel)]="post.title" type="text" class="form-control"
+               name="title" [placeholder]="error ? error : 'Tytuł'" title="Tytuł">
+      </div>
+
+      <div class="input-group">
+        <textarea [(ngModel)]="post.text" type="text" class="form-control"
+               name="text" [placeholder]="error ? error : 'Tekst'" title="Tekst"></textarea>
+      </div>
+   
+      <div class="input-group" style="margin-bottom: 50;">
+        <input [(ngModel)]="post.image" type="text" class="form-control"
+               name="image" [placeholder]="error ? error : 'Adres URL do obrazka'" title="Obraz">
+      </div>
+
+      <div *ngIf="post.image">
+        <img [src]="post.image" alt="Preview Image" class="img-preview">
+        
+      </div>
+
+      <button (click)="addPost()" class="btn btn-primary" type="submit" title="Przycisk zaloguj" style="margin-top: 50;">
+        Dodaj!
+      </button>
+    </form>
+   </div>
+</div>
+
+
+   

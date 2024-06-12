@@ -1,7 +1,6 @@
 import Controller from '../interfaces/controller.interface';
 import { Request, Response, NextFunction, Router } from 'express';
 import { auth } from 'middlewares/auth.middleware';
-import { admin } from 'middlewares/admin.middleware';
 import UserService from "modules/services/user.service";
 import PasswordService from "../modules/services/password.service";
 import TokenService from "../modules/services/token.service";
@@ -22,18 +21,20 @@ class UserController implements Controller {
         this.router.post(`${this.path}/auth`, this.authenticate);
         this.router.delete(`${this.path}/logout/:userId`, auth, this.removeHashSession);
     }
-
+    
     private authenticate = async (request: Request, response: Response, next: NextFunction) => {
-        const { login, password } = request.body;
+        const { name, password } = request.body;
 
         try {
-            const user = await this.userService.getByEmailOrName(login);
-            if (!user) {
-                response.status(401).json({ error: 'Unauthorized' });                
-            }
-            await this.passwordService.authorize(user?.id, await this.passwordService.hashPassword(password));
+            const user = await this.userService.getByEmailOrName(name);            
+            if (user == null) {
+                return response.status(401).json({ error: 'Unauthorized - no user found' });                                
+            }            
+            await this.passwordService.authorize(user?._id, await this.passwordService.hashPassword(password));
+
             const token = await this.tokenService.create(user);            
-            response.status(200).json(this.tokenService.getToken(token));
+
+            return response.status(200).json(this.tokenService.getToken(token));
         } catch (error: any) {
             console.error(`Validation Error: ${error.message}`);
             response.status(401).json({ error: 'Unauthorized' });
@@ -64,12 +65,14 @@ class UserController implements Controller {
 
         try {
             const result = await this.tokenService.remove(userId);
-            response.status(200).json(result);
+            return response.status(200).json(result);
         } catch (error: any) {
             console.error(`Validation Error: ${error.message}`);
-            response.status(401).json({ error: 'Unauthorized' });
+            return response.status(401).json({ error: 'Unauthorized' });
         }
     };
+
+    
 
 
 }

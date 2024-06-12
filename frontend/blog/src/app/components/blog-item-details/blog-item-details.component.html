@@ -1,4 +1,9 @@
-<img [src]="image"/>
-<p>
-    {{text}}
-</p>
+<div class="card" style="width: 38rem;">
+  <div class="card-header">
+    <h3>{{ title }}</h3>
+  </div>
+  <img [src]="image" class="card-img-top" style="padding: 10px;" alt="Blog Image">
+  <div class="card-body">
+    <p>{{ text }}</p>
+  </div>
+</div>

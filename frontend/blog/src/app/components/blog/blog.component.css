@@ -1,13 +1,54 @@
+/* Title Container */
 .title-container {
-    display: flex;
-    justify-content: center;  
-    padding: 10px;    
-}
-
-.title-style {
-    font-size: 60px;    
-    font-family: verdana;
-    background-color: #11B9AE;
-    padding: 16px;
-    border-radius: 10px;
-}
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 20px; /* Some margin at the bottom */
+    text-align: center; /* Center the text */
+  }
+  
+  /* Title Style */
+  .title-style {
+    color: #333; /* Dark gray text color */
+    font-size: 24px; /* Larger font size */
+    font-weight: bold; /* Bold font weight */
+  }
+  
+  /* Container for Blog Items */
+  .container {
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 20px; /* Some margin at the bottom */
+    background-color: #fff; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  /* Hover effect for Blog Items */
+  .container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Increase the shadow on hover */
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Blog Item Image */
+  .blog-item-image {
+    max-width: 100%; /* Ensure the image doesn't overflow its container */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  /* Blog Item Text */
+  .blog-item-text {
+    margin-top: 10px; /* Some margin at the top */
+    color: #666; /* Dark gray text color */
+    font-size: 16px; /* Medium font size */
+  }
+  
+  /* Blog Item Link */
+  .blog-item-link {
+    color: #007bff; /* Blue link color */
+    text-decoration: none; /* Remove default underline */
+  }
+  
+  .blog-item-link:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
