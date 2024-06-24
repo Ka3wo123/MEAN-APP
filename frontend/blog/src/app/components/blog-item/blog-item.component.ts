@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { BlogItemImageComponent } from "../blog-item-image/blog-item-image.component";
 import { BlogItemTextComponent } from "../blog-item-text/blog-item-text.component";
 import { BlogItemTitleComponent } from '../blog-item-title/blog-item-title.component';

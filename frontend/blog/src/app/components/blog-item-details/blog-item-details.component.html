@@ -1,9 +1,12 @@
-<div class="card" style="width: 38rem;">
+<div *ngIf="item" class="card" style="width: 38rem;">
   <div class="card-header">
-    <h3>{{ title }}</h3>
+    <h3>{{ item.title }}</h3>
   </div>
-  <img [src]="image" class="card-img-top" style="padding: 10px;" alt="Blog Image">
+  <img [src]="item.image" class="card-img-top" style="padding: 10px;" alt="Blog Image">
   <div class="card-body">
-    <p>{{ text }}</p>
+    <p>{{ item.text }}</p>
   </div>
+</div>
+<div *ngIf="error" class="error-message">
+  <p>{{ error }}</p>
 </div>

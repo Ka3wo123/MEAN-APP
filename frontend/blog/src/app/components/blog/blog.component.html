@@ -1,9 +1,10 @@
 <div class="title-container" style="background-color: azure;">
-    <h1 class="title-style">Górzysty blog - ostatnie posty docker</h1>
+    <h1 class="title-style">Górzysty blog - ostatnie posty</h1>
 </div>
 <div class="container" style="padding: 10px; border-radius: 10px; margin-bottom: 10px;" *ngFor="let item of items | filter:filterText">
-    <blog-item [image]="item.image" [text]="item.text" [_id]="item._id">
+    <blog-item [title]="item.title" [image]="item.image" [text]="item.text" [_id]="item._id">
     </blog-item>
 </div>
+
 
 

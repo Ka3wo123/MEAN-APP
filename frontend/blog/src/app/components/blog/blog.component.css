@@ -14,20 +14,6 @@
     font-weight: bold; /* Bold font weight */
   }
   
-  /* Container for Blog Items */
-  .container {
-    padding: 20px; /* Add some padding */
-    border-radius: 10px; /* Rounded corners */
-    margin-bottom: 20px; /* Some margin at the bottom */
-    background-color: #fff; /* White background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  }
-  
-  /* Hover effect for Blog Items */
-  .container:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Increase the shadow on hover */
-    transition: box-shadow 0.3s ease; /* Smooth transition */
-  }
   
   /* Blog Item Image */
   .blog-item-image {

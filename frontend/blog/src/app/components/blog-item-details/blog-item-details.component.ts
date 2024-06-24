@@ -5,11 +5,14 @@ import { BlogItemTextComponent } from '../blog-item-text/blog-item-text.componen
 import { CommonModule } from '@angular/common';
 import {tap, catchError } from 'rxjs'
 import { NOT_FOUND } from '../../error';
+import { BlogItemImageComponent } from '../blog-item-image/blog-item-image.component';
+import { BlogItemTitleComponent } from '../blog-item-title/blog-item-title.component';
+import { Post } from '../../post';
 
 @Component({
   selector: 'app-blog-item-details',
   standalone: true,
-  imports: [BlogItemTextComponent, CommonModule],
+  imports: [BlogItemTextComponent, BlogItemImageComponent, BlogItemTitleComponent, CommonModule],
   templateUrl: './blog-item-details.component.html',
   styleUrl: './blog-item-details.component.css'
 })
@@ -19,6 +22,7 @@ export class BlogItemDetailsComponent implements OnInit {
   public text: string = '';
   public title: string = '';  
   public error: string = '';
+  public item: Post | null = null;
 
   constructor(private service: DataService, private route: ActivatedRoute) {
 
@@ -35,10 +39,8 @@ export class BlogItemDetailsComponent implements OnInit {
 
   getPost() {    
     return this.service.getOne(this.id).pipe(
-      tap((result) => {
-        this.image = result.image;
-        this.text = result.text;
-        this.title = result.title;
+      tap((result: Post[]) => {
+        this.item = result[0];        
       }),
       catchError((error) => {
         this.error = NOT_FOUND.message;
@@ -46,5 +48,6 @@ export class BlogItemDetailsComponent implements OnInit {
       })
     ).subscribe();
   }
+
   
 }

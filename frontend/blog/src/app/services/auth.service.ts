@@ -38,7 +38,7 @@ export class AuthService {
 
   logout() {
     const localStorage = this.document.defaultView?.localStorage;
-    console.log(this.currentUser.userId)
+    console.log("THIS IS USER ID: " + this.currentUser.userId)
     return this.http.delete(this.url + '/user/logout/' + this.currentUser.userId).pipe(
       map(() => localStorage?.removeItem('token'))
     )

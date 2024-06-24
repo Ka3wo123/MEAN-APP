@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { HttpClientModule } from '@angular/common/http';
 import { FilterTextPipe } from '../../pipes/filter-text.pipe';
 import { AuthService } from '../../services/auth.service';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @Component({
   selector: 'blog',
@@ -17,6 +18,7 @@ import { AuthService } from '../../services/auth.service';
 export class BlogComponent implements OnInit {
   public items: any;
   @Input() filterText: string = '';
+  public finished: boolean = false;
 
   constructor(private service: DataService) {
   }
@@ -25,7 +27,7 @@ export class BlogComponent implements OnInit {
     this.getAll();
   }
 
-  getAll() {
+  getAll() {    
     this.service.getAll().subscribe(response => {
       this.items = response;
     })
@@ -37,5 +39,6 @@ export class BlogComponent implements OnInit {
     })
   }
 
-}
 
+
+}

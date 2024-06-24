@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { catchError, tap } from 'rxjs';
 import { error } from 'console';
 import { BAD_REQUEST } from '../../error';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addpost',
@@ -26,7 +27,7 @@ export class AddpostComponent implements OnInit {
 
   }
 
-  constructor(public dataService: DataService) {
+  constructor(public dataService: DataService, private router: Router) {
 
   }
 
@@ -34,6 +35,7 @@ export class AddpostComponent implements OnInit {
     return this.dataService.addPost(this.post).pipe(
       tap((result) => {
         console.log("post " + result);
+        this.router.navigate(['/blog'])
       }
       ),
       catchError((error) => {

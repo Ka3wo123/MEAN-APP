@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from '../post';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -15,8 +16,8 @@ export class DataService {
   public getAll() {
     return this.http.get<Post>(`${this.url}/api/post/all`);
   }
-  public getOne(id: string) {
-    return this.http.get<Post>(`${this.url}/api/post/${id}`);
+  public getOne(id: string): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.url}/api/post/${id}`);
   }
 
   public addPost(body: Post) {
